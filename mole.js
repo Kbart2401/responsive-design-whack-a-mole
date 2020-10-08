@@ -6,9 +6,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function popUpRandomMole() {
         count--;
+        document.getElementById('moles').innerHTML = `Moles ${count}`;
         if (count === 0) {
             let end = document.getElementById("game-over");
             end.innerHTML = "Game Over";
+            return;
         }
         const random = Math.floor(Math.random() * 7.9);
         let currHead = heads[random];
@@ -24,8 +26,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     Array.from(heads).forEach((head) => {
         head.addEventListener("click", event => {
+            score++;
             event.target.classList.add('wgs__mole-head--hidden');
-            event.target.classList.add('wgs__mole-head--whacked');
+            document.getElementById('score').innerHTML = `Score ${score}`;
         })
     })
 
