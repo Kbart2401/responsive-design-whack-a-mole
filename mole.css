@@ -1,4 +1,13 @@
 /* Write your CSS here. */
+body {
+    zoom: 0.65;
+}
+
+.field {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 .wgs {
     position: relative;
@@ -13,6 +22,8 @@
     height: 356px;
     width: 376px;
     left: 109px;
+    transition: margin-top;
+    transition-duration: 0.25s;
 }
 
 .wgs__dirt-pile {
