@@ -1,9 +1,10 @@
 window.addEventListener("DOMContentLoaded", () => {
+    /*******GLOBAL VARIABLES********/
     let heads = document.querySelectorAll('.wgs__mole-head');
     let count = 30;
     let score = 0;
+    let NAME;
 
-    setTimeout(popUpRandomMole, 0);
 
     /************FUNCTIONS*************/
     function popUpRandomMole() {
@@ -12,6 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (count === 0) {
             let end = document.getElementById("game-over");
             end.innerHTML = "Game Over!";
+            showHighScore();
             return;
         }
         const random = Math.floor(Math.random() * 15.9);
@@ -26,13 +28,25 @@ window.addEventListener("DOMContentLoaded", () => {
         setTimeout(popUpRandomMole, 1000);
     }
 
+    function showHighScore() {
+        document.querySelector('.high-score').classList.remove('hidden');
+    }
+
+    function startGame() {
+        setTimeout(popUpRandomMole, 0);
+    }
 
     /**********EVENT LISTENERS*************/
     document.querySelector('.form-input')
         .addEventListener('submit', event => {
+            // debugger;
+            event.preventDefault();
             document.querySelector('.form')
                 .classList.add('hidden');
-                event.preventDefault();
+
+            NAME = document.querySelector('.form-input').name.value;
+            document.getElementById('score').innerHTML = `${NAME}'s Score: ${score}`;
+            startGame();
         })
 
 
@@ -40,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
         head.addEventListener("click", event => {
             score++;
             event.target.classList.add('wgs__mole-head--hidden');
-            document.getElementById('score').innerHTML = `Score ${score}`;
+            document.getElementById('score').innerHTML = `${NAME}'s Score: ${score}`;
         })
     })
 

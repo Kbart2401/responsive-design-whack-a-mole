@@ -52,6 +52,8 @@ h1 {
   background-color: rgb(40, 169, 201);
   height: 120px;
   width: auto;
+  margin: 0px auto;
+  
 }
 
 .nav-bar__ele {
@@ -62,6 +64,7 @@ h1 {
   padding: 0 40px;
 }
 
+/* Opening Form  */
 .form {
   height: 1000px;
   width: 1800px;
@@ -110,6 +113,38 @@ button {
   height: 100px;
   width: 300px;
   font-size: 60px;
+}
+
+/* High Scores */
+.high-score {
+  height: 2000px;
+  width: 1800px;
+  margin: 0 auto;
+  background-color: rgb(40, 169, 201);
+  position: relative;
+  bottom: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 4px solid indigo;
+  border-radius: 1%;
+}
+
+.high-score__text {
+  font-size: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: bold;
+  margin: 0 0 40px 0;
+}
+
+.high-score__list {
+  height: 1500px;
+  width: 1200px;
+  display: flex;
+  justify-content: left;
+  margin-top: 0
 }
 
 .hidden {
