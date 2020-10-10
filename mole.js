@@ -30,6 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function showHighScore() {
         document.querySelector('.high-score').classList.remove('hidden');
+        
     }
 
     function startGame() {
