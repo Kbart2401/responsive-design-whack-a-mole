@@ -13,24 +13,36 @@ window.addEventListener("DOMContentLoaded", () => {
         if (count === 0) {
             let end = document.getElementById("game-over");
             end.innerHTML = "Game Over!";
+            setHighScore();
             showHighScore();
             return;
         }
         const random = Math.floor(Math.random() * 15.9);
         let currHead = heads[random];
-        if (currHead === undefined) popUpRandomMole();
         currHead.classList.remove('wgs__mole-head--hidden')
-        setTimeout(hideMole, 900, currHead);
+        setTimeout(hideMole, 20, currHead);
     }
 
     function hideMole(ele) {
         ele.classList.add('wgs__mole-head--hidden');
-        setTimeout(popUpRandomMole, 1000);
+        setTimeout(popUpRandomMole, 20);
     }
 
     function showHighScore() {
+        debugger;
         document.querySelector('.high-score').classList.remove('hidden');
-        
+        let scores = Object.entries(localStorage)
+            .sort((a, b) => b[1] - a[1]);
+        if(scores.length > 10) scores = scores.slice(0, 10);
+        scores.forEach(score => {
+            document.querySelector('ol').innerHTML +=
+                `<li>${score[0]}: ${score[1]}</li>`
+        })
+    }
+
+
+    function setHighScore() {
+        localStorage.setItem(NAME, score);
     }
 
     function startGame() {
@@ -58,6 +70,4 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById('score').innerHTML = `${NAME}'s Score: ${score}`;
         })
     })
-
-
 })
