@@ -110,9 +110,17 @@ input {
 }
 
 button {
-  height: 100px;
-  width: 300px;
+  height: 150px;
+  width: 350px;
   font-size: 60px;
+  margin-top: 20px;
+  border-radius: 8%;
+  background-color: rgb(43, 98, 216);
+  color: white;
+}
+
+button:hover {
+  background-color: rgb(34, 34, 112);
 }
 
 /* High Scores */
@@ -139,6 +147,12 @@ button {
   color: white;
   font-weight: bold;
   margin: 0 0 40px 0;
+}
+
+.high-score__text li {
+  font-size: 80px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
 }
 
 .high-score__list {
