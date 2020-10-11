@@ -1,16 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
     /*******GLOBAL VARIABLES********/
-    let heads = document.querySelectorAll('.wgs__mole-head');
-    let count = 30;
-    let score = 0;
     let NAME;
+    let COUNT = 30;
+    let score = 0;
+    let heads = document.querySelectorAll('.wgs__mole-head');
 
 
     /************FUNCTIONS*************/
     function popUpRandomMole() {
-        count--;
-        document.getElementById('moles').innerHTML = `Moles ${count}`;
-        if (count === 0) {
+        COUNT--;
+        document.getElementById('moles').innerHTML = `Moles ${COUNT}`;
+        if (COUNT === 0) {
             let end = document.getElementById("game-over");
             end.innerHTML = "Game Over!";
             setHighScore();
@@ -20,12 +20,12 @@ window.addEventListener("DOMContentLoaded", () => {
         const random = Math.floor(Math.random() * 15.9);
         let currHead = heads[random];
         currHead.classList.remove('wgs__mole-head--hidden')
-        setTimeout(hideMole, 50, currHead);
+        setTimeout(hideMole, 900, currHead);
     }
 
     function hideMole(ele) {
         ele.classList.add('wgs__mole-head--hidden');
-        setTimeout(popUpRandomMole, 50);
+        setTimeout(popUpRandomMole, 900);
     }
 
     function showHighScore() {
@@ -75,7 +75,9 @@ window.addEventListener("DOMContentLoaded", () => {
             document.querySelector('.high-score').classList.add('hidden');
             document.querySelector('.form').classList.remove('hidden');
             document.querySelector('ol').innerHTML = ""
-            count = 30;
+            document.getElementById("game-over").innerHTML = "";
+            COUNT = 30;
+            score = 0;
         })
     //Clicking on mole targets
     Array.from(heads).forEach((head) => {
